@@ -44,7 +44,8 @@ export class CaptureBase {
     },
       {
         headless: true,
-        args: ['--disable-web-security', '--allow-file-access', '--use-fake-ui-for-media-stream', ...this.o.puppeteerOptions && this.o.puppeteerOptions.args || []].filter(notSameNotFalsy)
+        args: ['--disable-web-security', '--allow-file-access', '--use-fake-ui-for-media-stream', ...this.o.puppeteerOptions && this.o.puppeteerOptions.args || []].filter(notSameNotFalsy),
+        timeout: 0
       })
     this.o.debug && console.log(`Puppeteer options: ${JSON.stringify(pOptions)}`)
     this.browser = await puppeteer.launch(pOptions)
